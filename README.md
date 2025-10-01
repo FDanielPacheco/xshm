@@ -40,7 +40,6 @@ sudo cp libxshm.so /usr/local/lib/
 sudo ldconfig
 ```
 ---
-
 ## Usage Example
 
 ```c
@@ -81,6 +80,7 @@ main( ){
 }
 ```
 
+---
 ## Author
 Fábio D. Pacheco \
 Email: fabio.d.pacheco@inesctec.pt
