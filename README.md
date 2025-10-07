@@ -122,7 +122,7 @@ main( void ){
 ```bash
 make example
 
-./build/example
+./build/shared_example
 ```
 Follow the instructions provided to validate the shared memory between processes using `hexdump`.
 

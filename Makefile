@@ -30,7 +30,7 @@ DOCS_DIR = docs
 
 # Test 
 TEST_DIR = test
-TESTS = example
+TESTS = shared_example
 TEST_BINS = $(addprefix $(BUILD_DIR)/, $(TESTS))
 
 # --- Target 1: xshm ---
@@ -117,7 +117,6 @@ documentation:
 	@doxygen docs/Doxyfile.tmp
 	@echo "Documentation generated in $(DOC_DIR)"
 
-
 release: $(BUILD_DIR)/lib$(TARGET1_NAME).$(TYPE)
 	@mkdir -p release/lib$(TARGET1_NAME)-$(TARGET_ARCH_CC)
 	@cp include/$(TARGET1_NAME).h release/lib$(TARGET1_NAME)-$(TARGET_ARCH_CC)/$(TARGET1_NAME).h
@@ -163,7 +162,10 @@ cleanrelease:
 	@echo "Cleaning the release directory..."
 	@rm -rf release
 	
-$(TESTS): %: single_a $(BUILD_DIR)/%
+example: single_a
+	$(MAKE) $(TESTS)
+
+$(TESTS): %: $(BUILD_DIR)/%
 
 $(BUILD_DIR)/%: $(TEST_DIR)/%.c | $(BUILD_DIR)
 	@echo "Compiling $< to test binary $@..."
