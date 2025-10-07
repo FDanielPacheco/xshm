@@ -59,3 +59,5 @@ docs/html
 docs/man
 release/
 .vscode/
+
+*.tmp
